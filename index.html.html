@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Réserves Plan">
+<meta name="theme-color" content="#6C1D45">
+<link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAAFfUlEQVR42u3dPWhTURjG8ZvLXUQsOFhRFIstCH4UFzWbILi6VB1cpUNBcOggIkpBHB0UoYMgTkUUUSdXdZBUt1gRNBYEC7ZCoSJO2jiIDtImuTfn433f839GbUJy+OU5537Xzu08nhGyVnKGgICDgIOAg4CDgIOAg4CDgIOAg4CDEHAQcBBwEHAQcBBwEHAQcBBwEHAQ8jcFQyAtl4uj6/3X1Z/PwYGJLn8TRgk4dLBY8yW+iYBDGYuQRFiQapXh/H3AYU2GVx/gUC/D33uCw4IMT++c7oL01v1Tvf/xudMPhMv49/4O16e1RG7BUIqCJy6+ZfyLKx8FIPp/c1e9Ii0Gm8Oricp1Eqw2HJZHAQvnH8BMkVhojugmuhZJ4NpwVR4FLCgSaziEs/jvo14+s6RxkHNk+M5iJBn9z2UFLIgFHG5ltOvjJdbtjdvgsMyilIbOr03ESmFeRj8mur6nbSWFVRk+TKSmpICFQyXGiBSWZERhYZhIYUNGdBYmiYg7tlJWhigW620DR9kP1v+xlRwZYVasTCvhZCga9HZ9fCm7phFHjowAGZy/pG5OkYLDtgy90XRUtl0f1ysjZHm4OsE4Po4ea4PCSK45kpIRpjwcXreSI8OSD7dX3Etfc9ibTfz5cH4vhmg4eqkNq+sMHz583KUjFyvDdtz68HT/FrnTivnNE1c+/N3ZJ8Lu85QnlDV9LO2+Jo1FHBzIcEKEuwn6yo+V7/Ov5z40mq1G8/Pb1uqv1a4vufB0ese+Yd9Euh7f3zozGPL6uSKR2vi+vPLx1Vyr0WzNNhfezbdX2zKXWbXG7a0zg53HMJiPQtroOHy3b1+XW7NvWo1ma/bNl/ef2m2JINb0IeTDFKJqw22unzi/vLBob1oMVh651drQGznjwN0ESWwcXecUaqPUaISZo2kOEhUHtaG0PGgOIhhH+NrYsGnjvmOHT1w8O/n4xpGTcu+XF71Qve/nEHJ0fuPmgeFD+0fqoyP10R17h2t57c+/v7z3VO8v2/cOD8vHVgYGN+86uGekPjpy5MC2PUO1Wo2ZQhMOr805+eSmgWVpxL3pLEhJJBycDqh6SRezOdi9IXyUmFYIOAg4CDiIchydF9KsRl2tSf1tsNAcBBwEHAQcBBwEHAQcBBwEHAQcBByEgIOAg4CDKMXR+XqbNJ/xXC2dx8rfdU00BwEHAQcBB7GOgzWp8FHy/tDhiKcZP5yafnbnUbChvPLi7pah7WY2VZhWiGAczCySx4fmIPFwhLzLf2rxPbbxm4OZRezIMK2QqDi6th/lUWFMAszXNAeJjYPyUFcbme37kI5NTYxNTUDNwrRCeUgbh3A42OGhbiRzfjSMgAgcvZBP2Ucv3z1kAbMpS8TgoDy01Eac5sCHChmip5V0fIj9pnFwsFmrYsRyyd82hfKQOaHo2Fqx7UP4t4uJo8cfhFUfPX6viFNw5OZI1od8GSKmlQR9qJCR6Tpk/2dMVT9uQRdxEQvSUj8RvRVS6pNL2NqXsrVi3oc6GVmAa2VLpexzZVRMMWUpy9lDKGs/R9lxkV8hemWIa45q/SGzQirAlXZUQSKOrOpzy4QQqdZnAo83CcWR9fFcu4hEKk9zMo9EysWhi4gxFjpwZH0/GtOrkj5XxMJPXVCAI3P06FSHSpxsJck/qUUHDodEqllxu82s5VwnTTgyn09fDhZFZ8Epw6GaiLqTI3NGmc9sqjl0VYjes6l14xBORPtJ9hZwSFNi5sILUziiEzF2PY5BHOGVWL1GyzIOr1BSuGgvFRx9cknz+s10cZCu4eYtBBwEHAQcBBwEHAQcBBwEHAQcBByEgIOAg4CDgIOAg4CDgIOAg4CDgIMQcBBwEHAQcBBwEHAQcBCt+Q2FTC2TNcpc1AAAAABJRU5ErkJggg==">
+<title>Réserves Plan — EPC Demosten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+<style>
+/* ===== Charte EPC Demosten ===== */
+:root{--am:#6C1D45;--fu:#E92184;--ve:#00C79A;--bg:#F3F0F2;--tx:#1f1f1f;--mut:#6f6f6f;--bd:#e2dde0;
+ --sat:env(safe-area-inset-top);--sab:env(safe-area-inset-bottom)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{font-family:Montserrat,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--tx);height:100dvh;display:flex;flex-direction:column;overflow:hidden;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,textarea,select{-webkit-user-select:text;user-select:text;font:inherit}
+.screen{display:none;flex:1;min-height:0;flex-direction:column}
+.screen.on{display:flex}
+.top{background:var(--am);color:#fff;padding:calc(var(--sat) + 10px) 12px 10px;display:flex;align-items:center;gap:10px;flex:none}
+.top h1{font-size:16px;margin:0;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:700}
+.top h1 small,.top small{display:block;font-size:11px;font-weight:400;opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ib{background:rgba(255,255,255,.15);border:0;color:#fff;font:inherit;font-weight:700;font-size:19px;width:42px;height:42px;border-radius:12px;flex:none}
+.body{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;padding:14px 14px calc(var(--sab) + 14px)}
+.wrap{max-width:720px;margin:0 auto}
+.tabs{display:flex;flex:none;background:#fff;border-top:1px solid var(--bd);padding-bottom:var(--sab)}
+.tabs button{flex:1;border:0;background:none;font:inherit;font-size:11px;font-weight:600;color:var(--mut);padding:8px 0 6px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.tabs button .ic{font-size:22px;line-height:1}
+.tabs button.on{color:var(--am)}
+.badge{background:var(--fu);color:#fff;border-radius:10px;font-size:10px;padding:1px 6px;margin-left:2px}
+.card{background:#fff;border-radius:14px;padding:14px;margin-bottom:12px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.card>b{font-size:14px;color:var(--am)}
+.btn{display:block;width:100%;border:0;border-radius:12px;padding:14px;font:inherit;font-weight:700;font-size:15px;margin-top:10px;background:var(--am);color:#fff}
+.btn.sec{background:#fff;color:var(--am);border:2px solid var(--am)}
+.btn.mut{background:#ece8ea;color:#333}
+.btn.dan{background:#fff;color:#c0392b;border:2px solid #c0392b}
+.btn.fu{background:var(--fu)}
+.btn:disabled{opacity:.5}
+label.f{display:block;font-size:11px;font-weight:700;color:var(--mut);text-transform:uppercase;letter-spacing:.3px;margin:12px 0 4px}
+.in{width:100%;border:1.5px solid var(--bd);border-radius:10px;padding:11px 12px;font-size:16px;background:#fff;color:var(--tx)}
+.in:focus{outline:none;border-color:var(--fu)}
+textarea.in{resize:vertical;min-height:72px}
+.hint{font-size:12px;color:var(--mut);line-height:1.45;margin:8px 0 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+/* ===== Plan ===== */
+#vPlan{display:flex;flex:1;min-height:0;flex-direction:column}
+#planWrap{position:relative;flex:1;min-height:0;overflow:hidden;background:#cfcbd0;touch-action:none;cursor:grab}
+#stage{position:absolute;left:0;top:0;transform-origin:0 0;will-change:transform}
+#stage img{display:block;pointer-events:none;background:#fff}
+.mk{position:absolute;width:34px;height:34px;border-radius:50%;background:var(--c);color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;border:2.5px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45);transform-origin:0 0;transform:scale(var(--inv,1)) translate(-50%,-50%);cursor:pointer}
+.mk.sel{box-shadow:0 0 0 4px rgba(255,255,255,.95),0 0 0 7px var(--c)}
+.fab{position:absolute;right:14px;bottom:14px;border:0;border-radius:30px;padding:0 20px;height:52px;font:inherit;font-weight:700;font-size:15px;background:var(--fu);color:#fff;box-shadow:0 3px 10px rgba(0,0,0,.3)}
+.fab.cancel{background:#333}
+.zooms{position:absolute;left:14px;bottom:14px;display:flex;gap:6px}
+.zooms button{width:44px;height:44px;border:0;border-radius:12px;background:rgba(255,255,255,.95);font:inherit;font-weight:700;font-size:20px;color:var(--am);box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.banner{position:absolute;left:12px;right:12px;top:12px;background:var(--am);color:#fff;padding:10px 14px;border-radius:12px;font-size:13px;font-weight:600;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.3);display:none;z-index:2}
+.banner.on{display:block}
+.empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px}
+.empty .card{max-width:340px;text-align:center}
+.legend{position:absolute;left:12px;top:12px;background:rgba(255,255,255,.92);border-radius:10px;padding:6px 10px;font-size:12px;display:flex;gap:10px;font-weight:700;z-index:1}
+.dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:4px;vertical-align:-1px}
+/* ===== Liste ===== */
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:10px}
+.chips button{flex:none;border:1.5px solid var(--bd);background:#fff;border-radius:20px;padding:7px 12px;font:inherit;font-size:12px;font-weight:600;color:#444}
+.chips button.on{background:var(--am);border-color:var(--am);color:#fff}
+.row{display:flex;gap:10px;align-items:center;background:#fff;border-radius:12px;padding:10px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.06);cursor:pointer}
+.row .num{width:38px;height:38px;border-radius:50%;background:var(--c);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;flex:none}
+.row .tx{flex:1;min-width:0}
+.row .tx b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .tx span{display:block;font-size:12px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .th{width:52px;height:52px;border-radius:8px;object-fit:cover;flex:none;background:#eee}
+.row .loc{border:0;background:#f1edf0;color:var(--am);width:40px;height:40px;border-radius:10px;font-size:18px;flex:none}
+/* ===== Fiche (sheet) ===== */
+.sheet{position:fixed;inset:0;background:#fff;display:none;flex-direction:column;z-index:20}
+.sheet.on{display:flex}
+.sh-top{background:var(--am);color:#fff;padding:calc(var(--sat) + 10px) 12px 10px;display:flex;align-items:center;gap:10px;flex:none}
+.sh-top b{flex:1;font-size:16px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sh-body{flex:1;min-height:0;overflow:auto;-webkit-overflow-scrolling:touch;padding:4px 14px 14px}
+.sh-foot{flex:none;display:flex;gap:8px;padding:10px 14px calc(var(--sab) + 10px);border-top:1px solid var(--bd);background:#fff}
+.sh-foot .btn{margin:0;flex:1}
+.sh-foot .btn.ico{flex:none;width:56px;padding:14px 0;font-size:20px}
+.seg{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.seg button{border:2px solid var(--bd);background:#fff;border-radius:10px;padding:10px 2px;font:inherit;font-size:11px;font-weight:700;color:#555}
+.seg button.on{color:#fff;border-color:transparent;background:var(--c)}
+.ph{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
+.ph div{position:relative;aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:#eee}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
+.ph .x{position:absolute;top:4px;right:4px;width:28px;height:28px;border-radius:50%;border:0;background:rgba(0,0,0,.6);color:#fff;font-weight:700;font-size:14px}
+.phb{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.phb .btn{margin:0}
+.meta{font-size:12px;color:var(--mut);margin-top:12px;line-height:1.5}
+/* ===== Divers ===== */
+.toast{position:fixed;left:50%;bottom:calc(var(--sab) + 84px);transform:translateX(-50%);background:#222;color:#fff;padding:10px 16px;border-radius:20px;font-size:13px;font-weight:600;z-index:50;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90%;text-align:center}
+.toast.on{opacity:1}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:30;display:none;align-items:center;justify-content:center;color:#fff;font-weight:700;flex-direction:column;gap:12px;text-align:center;padding:20px}
+.overlay.on{display:flex}
+.spin{width:36px;height:36px;border:4px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+#viewer{position:fixed;inset:0;background:#000;z-index:40;display:none;align-items:center;justify-content:center}
+#viewer.on{display:flex}
+#viewer img{max-width:100%;max-height:100%;object-fit:contain}
+#viewer button{position:absolute;right:14px;bottom:calc(var(--sab) + 20px);border:0;border-radius:24px;padding:12px 22px;font:inherit;font-weight:700;background:#fff;color:#000}
+.pj{display:flex;gap:10px;align-items:center;cursor:pointer}
+.pj .tx{flex:1;min-width:0}
+.pj b{display:block;font-size:15px;color:var(--tx)}
+.pj span{display:block;font-size:12px;color:var(--mut)}
+.pj .st{font-size:12px;font-weight:700;color:var(--am);white-space:nowrap}
+.visa{border:1.5px solid var(--bd);border-radius:12px;padding:4px 12px 12px;margin-top:10px}
+.sigrow{display:flex;align-items:center;gap:10px;margin-top:10px;min-height:40px}
+.sigimg{height:56px;max-width:58%;border:1px solid var(--bd);border-radius:8px;background:#fff;object-fit:contain}
+.sigtx{font-size:12px;color:var(--mut);line-height:1.4}
+#padWrap{flex:1;display:flex;flex-direction:column;padding:12px;gap:8px;min-height:0}
+#padBox{flex:1;border:2px dashed var(--am);border-radius:12px;background:#fff;position:relative;min-height:200px;overflow:hidden}
+#padC{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block}
+#padLine{position:absolute;left:8%;right:8%;bottom:22%;border-bottom:1px solid #ccc;pointer-events:none}
+</style>
+</head>
+<body>
+
+<!-- ===== ACCUEIL : liste des relevés ===== -->
+<section id="scrHome" class="screen on">
+ <div class="top"><h1>Réserves Plan<small>EPC Demosten · réserves localisées sur plan</small></h1></div>
+ <div class="body"><div class="wrap">
+  <div id="pjList"></div>
+  <button class="btn fu" onclick="newProject()">＋ Nouveau relevé</button>
+  <button class="btn sec" onclick="$('inpImport').click()">⬆️ Importer une sauvegarde (JSON)</button>
+  <p class="hint">1. Charge le plan (photo, image ou PDF) · 2. ＋ Réserve puis tape sur le plan · 3. Photo, description, à faire · 4. Export PDF.</p>
+  <p class="hint">Les données restent sur cet appareil : exporte une sauvegarde JSON régulièrement (OneDrive).</p>
+  <p class="hint" id="storeInfo"></p>
+ </div></div>
+</section>
+
+<!-- ===== RELEVÉ : plan / liste / infos ===== -->
+<section id="scrProj" class="screen">
+ <div class="top"><button class="ib" onclick="goHome()">‹</button><h1 id="pjTitle">…</h1><button class="ib" onclick="exportMenu()" title="Export">📤</button></div>
+ <div id="vPlan">
+  <div id="planWrap">
+   <div id="stage"><img id="planImg" alt=""></div>
+   <div class="legend" id="legend"></div>
+   <div class="banner" id="banner"></div>
+   <div class="zooms"><button onclick="zoomBy(1.4)">＋</button><button onclick="zoomBy(1/1.4)">−</button><button onclick="fit()" title="Ajuster">⛶</button></div>
+   <button class="fab" id="fab" onclick="toggleAdd()">＋ Réserve</button>
+   <div class="empty" id="planEmpty"><div class="card"><b>Aucun plan</b><p class="hint">Charge le plan du chantier : photo, image ou PDF.<br>La conversion d'un PDF nécessite le réseau (une fois).</p><button class="btn" onclick="$('inpPlan').click()">📐 Charger le plan</button></div></div>
+  </div>
+ </div>
+ <div id="vList" class="body" style="display:none"></div>
+ <div id="vInfo" class="body" style="display:none"></div>
+ <div class="tabs">
+  <button id="tbPlan" class="on" onclick="setTab('plan')"><span class="ic">🗺️</span><span>Plan</span></button>
+  <button id="tbList" onclick="setTab('list')"><span class="ic">☰</span><span>Liste <span id="cntBadge"></span></span></button>
+  <button id="tbInfo" onclick="setTab('info')"><span class="ic">ℹ️</span><span>Infos</span></button>
+ </div>
+</section>
+
+<!-- ===== FICHE RÉSERVE ===== -->
+<div id="sheet" class="sheet">
+ <div class="sh-top"><b id="shTitle">Réserve</b><button class="ib" onclick="closeSheet()">✕</button></div>
+ <div class="sh-body"><div class="wrap">
+  <label class="f">Statut</label>
+  <div class="seg" id="seg"></div>
+  <div style="display:grid;grid-template-columns:92px 1fr;gap:10px">
+   <div><label class="f">N°</label><input class="in" id="fN" type="number" inputmode="numeric" min="1"></div>
+   <div><label class="f">Localisation</label><input class="in" id="fLoc" list="dlLoc" placeholder="Niveau / zone / local"></div>
+  </div>
+  <label class="f">Description de la réserve</label><textarea class="in" id="fDesc" placeholder="Ce qui est constaté"></textarea>
+  <label class="f">À faire</label><textarea class="in" id="fAct" placeholder="Action attendue"></textarea>
+  <div class="g2">
+   <div><label class="f">Responsable / lot</label><input class="in" id="fResp" list="dlResp" placeholder="Entreprise, lot…"></div>
+   <div><label class="f">Échéance</label><input class="in" id="fEch" type="date"></div>
+  </div>
+  <label class="f">Photos</label>
+  <div class="ph" id="phGrid"></div>
+  <div class="phb"><button class="btn fu" onclick="$('inpCam').click()">📷 Photo</button><button class="btn mut" onclick="$('inpGal').click()">🖼️ Galerie</button></div>
+  <p class="meta" id="fMeta"></p>
+  <datalist id="dlLoc"></datalist><datalist id="dlResp"></datalist>
+ </div></div>
+ <div class="sh-foot">
+  <button class="btn dan ico" id="btDel" onclick="delPoint()" title="Supprimer">🗑</button>
+  <button class="btn sec ico" id="btMove" onclick="startMove()" title="Déplacer sur le plan">📍</button>
+  <button class="btn" onclick="savePoint()">Enregistrer</button>
+ </div>
+</div>
+
+<!-- ===== Feuille générique (nouveau relevé, export…) ===== -->
+<div id="gsheet" class="sheet"><div class="sh-top"><b id="gsTitle"></b><button class="ib" onclick="closeG()">✕</button></div><div class="sh-body"><div class="wrap" id="gsBody"></div></div></div>
+
+<!-- ===== Pad de signature ===== -->
+<div id="pad" class="sheet"><div class="sh-top"><b id="padTitle">Signature</b><button class="ib" onclick="closePad()">✕</button></div>
+ <div id="padWrap"><p class="hint" style="margin:0">Signe dans le cadre (doigt ou stylet). En paysage, le cadre est plus large.</p><div id="padBox"><div id="padLine"></div><canvas id="padC"></canvas></div></div>
+ <div class="sh-foot"><button class="btn mut" onclick="padClear()">Effacer</button><button class="btn fu" onclick="padOK()">Valider la signature</button></div>
+</div>
+
+<div id="viewer" onclick="closeViewer()"><img id="viewerImg" alt=""><button>Fermer</button></div>
+<div class="overlay" id="ov"><div class="spin"></div><div id="ovTx">…</div></div>
+<div class="toast" id="toast"></div>
+
+<input type="file" id="inpPlan" accept="image/*,application/pdf" hidden>
+<input type="file" id="inpCam" accept="image/*" capture="environment" hidden>
+<input type="file" id="inpGal" accept="image/*" multiple hidden>
+<input type="file" id="inpImport" accept="application/json,.json" hidden>
+
+<script>
+'use strict';
+/* =====================================================================
+   Réserves Plan — EPC Demosten — v1 (04/09/2026)
+   Fichier unique : aucune installation. Données stockées sur l'appareil
+   (IndexedDB). Librairies chargées à la demande (réseau) :
+   - pdf.js  : conversion d'un plan PDF en image (import)
+   - jsPDF   : génération du PDF de réserves (export)
+   ===================================================================== */
+const $=id=>document.getElementById(id);
+const APP='epc-reserves-plan', APP_V='v2';
+const ST={af:{l:'À faire',c:'#D7263D'},ec:{l:'En cours',c:'#F39C12'},ac:{l:'À contrôler',c:'#3A3A3A'},lev:{l:'Levée',c:'#00A884'}};
+const ORDER=['af','ec','ac','lev'];
+const stat=k=>ST[k]||ST.af;
+const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+const pad2=n=>String(n).padStart(2,'0');
+const IS_IOS=/iPhone|iPad|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1);
+const IS_MOBILE=IS_IOS||/Android/i.test(navigator.userAgent);
+function fmtDate(v){ if(!v) return '—'; const d=v instanceof Date?v:new Date(v); if(isNaN(d)) return String(v); return pad2(d.getDate())+'/'+pad2(d.getMonth()+1)+'/'+d.getFullYear(); }
+function isoToday(){ const d=new Date(); return d.getFullYear()+'-'+pad2(d.getMonth()+1)+'-'+pad2(d.getDate()); }
+function fmtDateTime(v){ if(!v) return '—'; const d=new Date(v); if(isNaN(d)) return String(v); return fmtDate(d)+' '+pad2(d.getHours())+':'+pad2(d.getMinutes()); }
+function todayFile(){ const d=new Date(); return pad2(d.getDate())+'-'+pad2(d.getMonth()+1)+'-'+d.getFullYear(); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
+function slug(s){ return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^A-Za-z0-9]+/g,'-').replace(/^-+|-+$/g,''); }
+function fileCode(){ return slug(P&&P.code)||'EPC'; }
+let toastT; function toast(m){ const t=$('toast'); t.textContent=m; t.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('on'),2200); }
+function overlay(on,tx){ $('ov').classList.toggle('on',!!on); if(tx) $('ovTx').textContent=tx; }
+function show(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('on',s.id===id)); }
+function openG(title,html){ $('gsTitle').textContent=title; $('gsBody').innerHTML=html; $('gsheet').classList.add('on'); }
+function closeG(){ $('gsheet').classList.remove('on'); }
+
+/* ---------- Stockage : IndexedDB, sinon window.storage (artefact Claude), sinon mémoire ---------- */
+const DB=(()=>{
+  let mode='mem', db=null; const mem=new Map();
+  const os=m=>db.transaction('projets',m).objectStore('projets');
+  const req=r=>new Promise((res,rej)=>{ r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error||new Error('IndexedDB')); });
+  async function init(){
+    try{
+      if(!window.indexedDB) throw new Error('no idb');
+      db=await new Promise((res,rej)=>{ const r=indexedDB.open('epc-reserves-plan',1);
+        r.onupgradeneeded=()=>r.result.createObjectStore('projets',{keyPath:'id'});
+        r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error); r.onblocked=()=>rej(new Error('blocked')); });
+      mode='idb';
+    }catch(e){ mode=(window.storage&&window.storage.get)?'ws':'mem'; }
+    return mode;
+  }
+  return {
+    init, get mode(){ return mode; },
+    async all(){
+      if(mode==='idb') return (await req(os('readonly').getAll()))||[];
+      if(mode==='ws'){ const out=[]; try{ const l=await window.storage.list('proj:',false); for(const k of (l&&l.keys)||[]){ try{ const r=await window.storage.get(k,false); if(r&&r.value) out.push(JSON.parse(r.value)); }catch(_){} } }catch(_){} return out; }
+      return [...mem.values()];
+    },
+    async put(p){
+      if(mode==='idb') return req(os('readwrite').put(p));
+      if(mode==='ws') return window.storage.set('proj:'+p.id,JSON.stringify(p),false);
+      mem.set(p.id,p);
+    },
+    async del(id){
+      if(mode==='idb') return req(os('readwrite').delete(id));
+      if(mode==='ws') return window.storage.delete('proj:'+id,false);
+      mem.delete(id);
+    }
+  };
+})();
+
+/* ---------- État ---------- */
+let P=null;                      // relevé courant
+let homeCache=[];
+let cur=null, curIsNew=false, curOrig=null, curSnap='';   // réserve en édition (copie de travail)
+let addMode=false, moveN=null, selN=null, listFilter='all', tab='plan';
+const V={s:1,tx:0,ty:0,min:.2,max:8}; let W=0,H=0, lastW=0,lastH=0;   // vue du plan (échelle / translation)
+let lastFile=null;
+
+/* ---------- Sauvegarde (auto, différée 250 ms) ---------- */
+let saveT=null;
+function save(now){
+  if(!P) return Promise.resolve();
+  P.modif=new Date().toISOString(); clearTimeout(saveT);
+  const doIt=()=>DB.put(P).catch(e=>toast('⚠️ Sauvegarde impossible : '+(e&&e.message||e)));
+  if(now) return doIt();
+  saveT=setTimeout(doIt,250); return Promise.resolve();
+}
+document.addEventListener('visibilitychange',()=>{ if(document.hidden) save(true); });
+
+/* ---------- Images : lecture, réduction, vignette ---------- */
+function loadImg(src){ return new Promise((res,rej)=>{ const i=new Image(); i.onload=()=>res(i); i.onerror=()=>rej(new Error('image illisible')); i.src=src; }); }
+async function loadImgFile(file){ const u=URL.createObjectURL(file); try{ return await loadImg(u); } finally{ setTimeout(()=>URL.revokeObjectURL(u),1000); } }
+function drawScaled(img,max,q){
+  let w=img.naturalWidth||img.width, h=img.naturalHeight||img.height;
+  const k=Math.min(1,max/Math.max(w,h)); w=Math.max(1,Math.round(w*k)); h=Math.max(1,Math.round(h*k));
+  const c=document.createElement('canvas'); c.width=w; c.height=h; const x=c.getContext('2d');
+  x.fillStyle='#fff'; x.fillRect(0,0,w,h); x.drawImage(img,0,0,w,h);
+  return {data:c.toDataURL('image/jpeg',q),w,h};
+}
+async function shrinkFile(file,max,q){ return drawScaled(await loadImgFile(file),max,q); }
+async function makePhoto(file){ const img=await loadImgFile(file); const big=drawScaled(img,1280,0.72), th=drawScaled(img,180,0.6); return {d:big.data,w:big.w,h:big.h,t:th.data}; }
+
+/* ---------- Librairies externes à la demande ---------- */
+function loadScript(src){ return new Promise((res,rej)=>{ const s=document.createElement('script'); s.src=src; s.onload=res; s.onerror=()=>rej(new Error('réseau indisponible ('+src.split('/').pop()+')')); document.head.appendChild(s); }); }
+async function pdfToImg(file){
+  if(!window.pdfjsLib){ await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js'); window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; }
+  const pdf=await pdfjsLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;
+  let n=1;
+  if(pdf.numPages>1){ const r=prompt('Le PDF a '+pdf.numPages+' pages. Quelle page importer ?','1'); if(r===null) throw new Error('import annulé'); n=clamp(parseInt(r,10)||1,1,pdf.numPages); }
+  const page=await pdf.getPage(n); const v0=page.getViewport({scale:1});
+  const sc=Math.min(2600/Math.max(v0.width,v0.height),4); const vp=page.getViewport({scale:sc});
+  const c=document.createElement('canvas'); c.width=Math.round(vp.width); c.height=Math.round(vp.height);
+  const x=c.getContext('2d'); x.fillStyle='#fff'; x.fillRect(0,0,c.width,c.height);
+  await page.render({canvasContext:x,viewport:vp}).promise;
+  return {data:c.toDataURL('image/jpeg',0.9),w:c.width,h:c.height};
+}
+async function ensureJsPDF(){ if(window.jspdf&&window.jspdf.jsPDF) return; await loadScript('https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js'); }
+
+/* ---------- Accueil / relevés ---------- */
+async function renderHome(){
+  let all=[]; try{ all=await DB.all(); }catch(e){}
+  all.sort((a,b)=>String(b.modif||'').localeCompare(String(a.modif||'')));
+  homeCache=all;
+  $('pjList').innerHTML=all.length?all.map(p=>{ const pts=p.points||[]; const o=pts.filter(q=>q.statut!=='lev').length;
+    return `<div class="card pj" onclick="openById('${p.id}')"><div class="tx"><b>${esc((p.code?p.code+' · ':'')+(p.nom||'Sans nom'))}</b><span>${esc(p.client||'')}${p.client?' · ':''}${pts.length} réserve(s) · ${o} non levée(s)</span><span>Modifié le ${fmtDate(p.modif)}${p.plan?'':' · sans plan'}</span></div><div class="st">Ouvrir ›</div></div>`; }).join('')
+   :`<div class="card" style="text-align:center"><p class="hint">Aucun relevé pour l'instant.</p></div>`;
+}
+function openById(id){ const p=homeCache.find(x=>x.id===id); if(p) openProject(p); }
+function newProject(){
+  openG('Nouveau relevé',`
+   <label class="f">Code chantier</label><input class="in" id="nCode" placeholder="ex. 26-165">
+   <label class="f">Nom du relevé</label><input class="in" id="nNom" placeholder="ex. Réception lot démolition — Bât. B">
+   <label class="f">Client / maître d'ouvrage</label><input class="in" id="nCli">
+   <button class="btn fu" onclick="createProject()">Créer le relevé</button>`);
+  setTimeout(()=>$('nCode').focus(),50);
+}
+async function createProject(){
+  const code=$('nCode').value.trim(), nom=$('nNom').value.trim();
+  if(!code&&!nom){ toast('Indique au moins un code ou un nom'); return; }
+  const p={id:'p'+Date.now().toString(36),app:APP,code,nom,client:$('nCli').value.trim(),lieu:'',objet:'',redacteur:'Benoît Boyère',date:isoToday(),plan:null,points:[],exports:0,cree:new Date().toISOString(),modif:new Date().toISOString()};
+  try{ await DB.put(p); }catch(e){ toast('⚠️ Sauvegarde impossible : '+e.message); }
+  closeG(); homeCache.unshift(p); openProject(p);
+}
+function openProject(p){ P=p; if(!P.points) P.points=[]; selN=null; addMode=false; moveN=null; listFilter='all'; banner(null); updFab(); show('scrProj'); renderTitle(); setTab('plan'); loadPlanIntoStage(); }
+async function goHome(){ await save(true); P=null; W=H=0; $('planImg').removeAttribute('src'); show('scrHome'); renderHome(); }
+async function deleteProject(){
+  if(!confirm('Supprimer définitivement le relevé « '+(P.nom||P.code)+' » et toutes ses réserves ?\n(Pense à exporter une sauvegarde JSON avant.)')) return;
+  try{ await DB.del(P.id); }catch(e){}
+  P=null; W=H=0; show('scrHome'); renderHome(); toast('Relevé supprimé');
+}
+function renderTitle(){
+  const n=P.points.length, o=P.points.filter(p=>p.statut!=='lev').length;
+  $('pjTitle').innerHTML=esc((P.code?P.code+' · ':'')+(P.nom||'Sans nom'))+`<small>${esc(P.client||'')}${P.client?' · ':''}${n} réserve(s) · ${o} non levée(s)</small>`;
+  updateCounts();
+}
+function updateCounts(){
+  const o=P.points.filter(p=>p.statut!=='lev').length;
+  $('cntBadge').innerHTML=o?`<span class="badge">${o}</span>`:'';
+  $('legend').innerHTML=ORDER.map(k=>`<span title="${ST[k].l}"><i class="dot" style="background:${ST[k].c}"></i>${P.points.filter(p=>p.statut===k).length}</span>`).join('');
+}
+
+/* ---------- Onglets ---------- */
+function setTab(t){
+  tab=t;
+  $('vPlan').style.display=t==='plan'?'flex':'none';
+  $('vList').style.display=t==='list'?'block':'none';
+  $('vInfo').style.display=t==='info'?'block':'none';
+  $('tbPlan').classList.toggle('on',t==='plan'); $('tbList').classList.toggle('on',t==='list'); $('tbInfo').classList.toggle('on',t==='info');
+  if(t==='list') renderList();
+  if(t==='info') renderInfo();
+  if(t==='plan'&&W){ const r=$('planWrap').getBoundingClientRect(); if(Math.abs(r.width-lastW)>2||Math.abs(r.height-lastH)>2) fit(); }
+}
+
+/* ---------- Plan : chargement, zoom, pan, marqueurs ---------- */
+function loadPlanIntoStage(){
+  const img=$('planImg'); const has=!!(P&&P.plan);
+  $('planEmpty').style.display=has?'none':'flex'; $('fab').style.display=has?'':'none'; $('legend').style.display=has?'':'none';
+  $('stage').querySelectorAll('.mk').forEach(m=>m.remove());
+  if(!has){ img.removeAttribute('src'); W=H=0; return; }
+  const ready=()=>{ W=img.naturalWidth; H=img.naturalHeight; img.width=W; img.height=H; $('stage').style.width=W+'px'; $('stage').style.height=H+'px'; fit(); renderMarkers(); };
+  img.onload=ready;
+  if(img.getAttribute('src')===P.plan.data){ if(img.complete&&img.naturalWidth) ready(); }   // même image : onload ne se redéclenche pas
+  else img.src=P.plan.data;
+}
+function apply(){ $('stage').style.transform=`translate(${V.tx}px,${V.ty}px) scale(${V.s})`; $('stage').style.setProperty('--inv',(1/V.s).toFixed(4)); }
+function fit(){
+  if(!W) return; const r=$('planWrap').getBoundingClientRect(); if(!r.width||!r.height) return;
+  lastW=r.width; lastH=r.height;
+  const s=Math.min(r.width/W,r.height/H)*0.97; V.min=s*0.5; V.max=Math.max(8,s*14);
+  V.s=s; V.tx=(r.width-W*s)/2; V.ty=(r.height-H*s)/2; apply();
+}
+function zoomAt(ns,px,py){ const ix=(px-V.tx)/V.s, iy=(py-V.ty)/V.s; V.s=ns; V.tx=px-ix*ns; V.ty=py-iy*ns; apply(); }
+function zoomBy(f){ if(!W) return; const r=$('planWrap').getBoundingClientRect(); zoomAt(clamp(V.s*f,V.min,V.max),r.width/2,r.height/2); }
+function centerOn(p){ if(!W||!p) return; const r=$('planWrap').getBoundingClientRect(); const ns=clamp(Math.max(V.s,V.min*2*2.5),V.min,V.max); V.s=ns; V.tx=r.width/2-p.x*W*ns; V.ty=r.height/2-p.y*H*ns; apply(); }
+function renderMarkers(){
+  const st=$('stage'); st.querySelectorAll('.mk').forEach(m=>m.remove()); if(!W||!P) return;
+  for(const p of P.points){ const m=document.createElement('div'); m.className='mk'+(p.n===selN?' sel':''); m.dataset.n=p.n; m.style.left=(p.x*W)+'px'; m.style.top=(p.y*H)+'px'; m.style.setProperty('--c',stat(p.statut).c); m.textContent=p.n; st.appendChild(m); }
+  updateCounts();
+}
+function banner(msg){ const b=$('banner'); b.textContent=msg||''; b.classList.toggle('on',!!msg); }
+function updFab(){ const f=$('fab'); const busy=addMode||moveN!==null; f.textContent=busy?'✕ Annuler':'＋ Réserve'; f.classList.toggle('cancel',busy); }
+function setAdd(v){ addMode=v; banner(v?'Tape sur le plan à l’emplacement de la réserve':null); updFab(); }
+function toggleAdd(){ if(moveN!==null){ moveN=null; banner(null); updFab(); return; } setAdd(!addMode); }
+
+/* Gestes : 1 doigt = déplacer / taper, 2 doigts = pincer (zoom autour du point pincé) */
+const wrap=$('planWrap'); const ptrs=new Map(); let gest=null, down=null;
+const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+wrap.addEventListener('pointerdown',e=>{
+  if(!W) return;
+  if(e.target!==wrap&&!$('stage').contains(e.target)) return;      // boutons, légende, bandeau : gestion native
+  e.preventDefault();
+  try{ wrap.setPointerCapture(e.pointerId); }catch(_){}
+  ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY});
+  if(ptrs.size===1){ down={x:e.clientX,y:e.clientY,t:Date.now(),mk:(e.target.closest?e.target.closest('.mk'):null),moved:false}; gest={mode:'pan',sx:e.clientX,sy:e.clientY,tx0:V.tx,ty0:V.ty}; }
+  else if(ptrs.size===2){ const [a,b]=[...ptrs.values()]; const r=wrap.getBoundingClientRect(); gest={mode:'pinch',d0:dist(a,b)||1,s0:V.s,ix:((a.x+b.x)/2-r.left-V.tx)/V.s,iy:((a.y+b.y)/2-r.top-V.ty)/V.s}; if(down) down.moved=true; }
+});
+wrap.addEventListener('pointermove',e=>{
+  if(!ptrs.has(e.pointerId)) return;
+  ptrs.set(e.pointerId,{x:e.clientX,y:e.clientY}); if(!gest) return;
+  if(gest.mode==='pan'&&ptrs.size===1){ const dx=e.clientX-gest.sx, dy=e.clientY-gest.sy; if(down&&(Math.abs(dx)>8||Math.abs(dy)>8)) down.moved=true; V.tx=gest.tx0+dx; V.ty=gest.ty0+dy; apply(); }
+  else if(gest.mode==='pinch'&&ptrs.size===2){ const [a,b]=[...ptrs.values()]; const r=wrap.getBoundingClientRect(); const ns=clamp(gest.s0*dist(a,b)/gest.d0,V.min,V.max); const mx=(a.x+b.x)/2-r.left, my=(a.y+b.y)/2-r.top; V.s=ns; V.tx=mx-gest.ix*ns; V.ty=my-gest.iy*ns; apply(); }
+});
+function endPtr(e){
+  if(!ptrs.has(e.pointerId)) return; ptrs.delete(e.pointerId);
+  if(ptrs.size===0){ if(down&&!down.moved&&Date.now()-down.t<600) onTap(e,down.mk); down=null; gest=null; }
+  else if(ptrs.size===1){ const [rem]=[...ptrs.values()]; gest={mode:'pan',sx:rem.x,sy:rem.y,tx0:V.tx,ty0:V.ty}; down=null; }
+}
+wrap.addEventListener('pointerup',endPtr); wrap.addEventListener('pointercancel',endPtr);
+wrap.addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
+wrap.addEventListener('wheel',e=>{ if(!W) return; e.preventDefault(); const r=wrap.getBoundingClientRect(); zoomAt(clamp(V.s*(e.deltaY<0?1.15:1/1.15),V.min,V.max),e.clientX-r.left,e.clientY-r.top); },{passive:false});
+document.addEventListener('gesturestart',e=>e.preventDefault());
+window.addEventListener('resize',()=>{ if(!W||tab!=='plan'||P===null||$('sheet').classList.contains('on')) return; const r=wrap.getBoundingClientRect(); if(Math.abs(r.width-lastW)>2||Math.abs(r.height-lastH)>2) fit(); });
+
+function onTap(e,mk){
+  const r=wrap.getBoundingClientRect(); const x=(e.clientX-r.left-V.tx)/V.s/W, y=(e.clientY-r.top-V.ty)/V.s/H; const inside=x>=0&&x<=1&&y>=0&&y<=1;
+  if(moveN!==null){ if(!inside){ toast('Tape sur le plan'); return; } const p=pt(moveN); if(p){ p.x=x; p.y=y; selN=p.n; } const n=moveN; moveN=null; banner(null); updFab(); save(); renderMarkers(); toast('Réserve n°'+n+' déplacée'); return; }
+  if(mk){ openPoint(parseInt(mk.dataset.n,10)); return; }
+  if(addMode){ if(!inside){ toast('Tape sur le plan'); return; } setAdd(false); newPoint(x,y); return; }
+}
+
+/* ---------- Réserves ---------- */
+const pt=n=>P.points.find(q=>q.n===n);
+const nextN=()=>P.points.reduce((m,p)=>Math.max(m,p.n),0)+1;
+function newPoint(x,y){ cur={n:nextN(),x,y,statut:'af',loc:'',desc:'',action:'',resp:'',ech:'',photos:[],cree:new Date().toISOString(),leve:''}; curIsNew=true; curOrig=null; showSheet(); }
+function openPoint(n){ const p=pt(n); if(!p) return; cur=JSON.parse(JSON.stringify(p)); if(!cur.photos) cur.photos=[]; curIsNew=false; curOrig=n; selN=n; renderMarkers(); showSheet(); }
+function showSheet(){
+  $('shTitle').textContent=(curIsNew?'Nouvelle réserve n°':'Réserve n°')+cur.n;
+  $('fN').value=cur.n; $('fLoc').value=cur.loc||''; $('fDesc').value=cur.desc||''; $('fAct').value=cur.action||''; $('fResp').value=cur.resp||''; $('fEch').value=cur.ech||'';
+  renderSeg(); renderPhotos();
+  $('fMeta').textContent='Créée le '+fmtDate(cur.cree)+(cur.leve?' · Levée le '+fmtDate(cur.leve):'')+' · Position : '+Math.round(cur.x*100)+' % / '+Math.round(cur.y*100)+' % du plan';
+  const uniq=k=>[...new Set(P.points.map(p=>p[k]).filter(Boolean))];
+  $('dlLoc').innerHTML=uniq('loc').map(v=>`<option value="${esc(v)}">`).join('');
+  $('dlResp').innerHTML=uniq('resp').map(v=>`<option value="${esc(v)}">`).join('');
+  $('btDel').style.display=curIsNew?'none':''; $('btMove').style.display=curIsNew?'none':'';
+  curSnap=snapshot();
+  $('sheet').classList.add('on'); $('sheet').querySelector('.sh-body').scrollTop=0;
+}
+function renderSeg(){ $('seg').innerHTML=ORDER.map(k=>`<button class="${cur.statut===k?'on':''}" style="--c:${ST[k].c}" onclick="cur.statut='${k}';renderSeg()">${ST[k].l}</button>`).join(''); }
+function renderPhotos(){ $('phGrid').innerHTML=cur.photos.map((p,i)=>`<div><img src="${p.t||p.d}" onclick="viewPhoto(${i})"><button class="x" onclick="event.stopPropagation();cur.photos.splice(${i},1);renderPhotos()">✕</button></div>`).join(''); }
+function viewPhoto(i){ if(!cur||!cur.photos[i]) return; $('viewerImg').src=cur.photos[i].d; $('viewer').classList.add('on'); }
+function closeViewer(){ $('viewer').classList.remove('on'); $('viewerImg').removeAttribute('src'); }
+async function addPhotos(files){
+  if(!cur||!files||!files.length) return; overlay(true,'Traitement des photos…');
+  try{ for(const f of files){ cur.photos.push(await makePhoto(f)); } renderPhotos(); }
+  catch(err){ toast('Photo impossible : '+err.message); }
+  overlay(false);
+}
+$('inpCam').addEventListener('change',async e=>{ const fs=[...e.target.files]; e.target.value=''; await addPhotos(fs); });
+$('inpGal').addEventListener('change',async e=>{ const fs=[...e.target.files]; e.target.value=''; await addPhotos(fs); });
+function gather(){ return {n:parseInt($('fN').value,10),statut:cur.statut,loc:$('fLoc').value.trim(),desc:$('fDesc').value.trim(),action:$('fAct').value.trim(),resp:$('fResp').value.trim(),ech:$('fEch').value,nph:cur.photos.length}; }
+function snapshot(){ return JSON.stringify(gather()); }
+function closeSheet(force){ if(!force&&cur&&snapshot()!==curSnap&&!confirm('Fermer sans enregistrer les modifications ?')) return; $('sheet').classList.remove('on'); cur=null; }
+function commitPoint(){
+  const g=gather(); if(!g.n||g.n<1){ toast('Numéro invalide'); return false; }
+  if(P.points.some(q=>q.n===g.n&&q.n!==curOrig)){ toast('Le n°'+g.n+' existe déjà'); return false; }
+  Object.assign(cur,{n:g.n,loc:g.loc,desc:g.desc,action:g.action,resp:g.resp,ech:g.ech});
+  if(cur.statut==='lev'){ if(!cur.leve) cur.leve=new Date().toISOString(); } else cur.leve='';
+  if(curIsNew) P.points.push(cur); else { const i=P.points.findIndex(q=>q.n===curOrig); if(i>=0) P.points[i]=cur; else P.points.push(cur); }
+  P.points.sort((a,b)=>a.n-b.n); selN=cur.n; curIsNew=false; curOrig=cur.n;
+  save(); renderMarkers(); renderTitle(); if(tab==='list') renderList(); return true;
+}
+function savePoint(){ if(!commitPoint()) return; const n=cur.n; closeSheet(true); toast('Réserve n°'+n+' enregistrée'); }
+function startMove(){ if(!commitPoint()) return; moveN=cur.n; closeSheet(true); setTab('plan'); banner('Tape sur le plan : nouvel emplacement de la réserve n°'+moveN); updFab(); }
+function delPoint(){ if(!confirm('Supprimer la réserve n°'+curOrig+' ?')) return; P.points=P.points.filter(q=>q.n!==curOrig); if(selN===curOrig) selN=null; save(); closeSheet(true); renderMarkers(); renderTitle(); if(tab==='list') renderList(); toast('Réserve supprimée'); }
+function showOnPlan(n){ selN=n; setTab('plan'); renderMarkers(); centerOn(pt(n)); }
+
+/* ---------- Liste ---------- */
+function renderList(){
+  const pts=[...P.points].sort((a,b)=>a.n-b.n); const cnt={all:pts.length}; ORDER.forEach(k=>cnt[k]=pts.filter(p=>p.statut===k).length);
+  let h=`<div class="wrap"><div class="chips">${[['all','Toutes'],...ORDER.map(k=>[k,ST[k].l])].map(([k,l])=>`<button class="${listFilter===k?'on':''}" onclick="listFilter='${k}';renderList()">${l} ${cnt[k]}</button>`).join('')}</div>`;
+  const shown=pts.filter(p=>listFilter==='all'||p.statut===listFilter);
+  if(!shown.length) h+=`<div class="card" style="text-align:center"><p class="hint">${P.plan?'Aucune réserve ici. Onglet Plan → ＋ Réserve, puis tape sur le plan.':'Charge d’abord un plan (onglet Plan).'}</p></div>`;
+  for(const p of shown){ const ph=(p.photos||[])[0];
+    h+=`<div class="row" onclick="openPoint(${p.n})"><div class="num" style="--c:${stat(p.statut).c}">${p.n}</div><div class="tx"><b>${esc(p.loc||'(sans localisation)')}</b><span>${esc(p.desc||p.action||'—')}</span><span>${stat(p.statut).l}${p.resp?' · '+esc(p.resp):''}${p.ech?' · éch. '+fmtDate(p.ech):''}${(p.photos||[]).length?' · '+p.photos.length+' photo(s)':''}</span></div>${ph?`<img class="th" src="${ph.t||ph.d}" alt="">`:''}<button class="loc" onclick="event.stopPropagation();showOnPlan(${p.n})" title="Voir sur le plan">📍</button></div>`; }
+  $('vList').innerHTML=h+'</div>';
+}
+
+/* ---------- Infos / export ---------- */
+function renderInfo(){
+  const store=DB.mode==='idb'?'IndexedDB (sur l’appareil)':DB.mode==='ws'?'artefact Claude (limité)':'mémoire — NON persistant, exporte en JSON !';
+  $('vInfo').innerHTML=`<div class="wrap">
+ <div class="card"><b>Relevé</b>
+  <label class="f">Code chantier</label><input class="in" value="${esc(P.code)}" oninput="P.code=this.value;save();renderTitle()">
+  <label class="f">Nom du relevé</label><input class="in" value="${esc(P.nom)}" oninput="P.nom=this.value;save();renderTitle()">
+  <label class="f">Client / maître d'ouvrage</label><input class="in" value="${esc(P.client)}" oninput="P.client=this.value;save();renderTitle()">
+  <label class="f">Lieu / bâtiment / niveau</label><input class="in" value="${esc(P.lieu||'')}" oninput="P.lieu=this.value;save()">
+  <label class="f">Objet (réception, visite, contrôle…)</label><input class="in" value="${esc(P.objet||'')}" oninput="P.objet=this.value;save()">
+  <div class="g2"><div><label class="f">Rédacteur</label><input class="in" value="${esc(P.redacteur||'')}" oninput="P.redacteur=this.value;save()"></div><div><label class="f">Date du relevé</label><input class="in" type="date" value="${esc(P.date||'')}" oninput="P.date=this.value;save()"></div></div>
+ </div>
+ <div class="card"><b>Plan</b><p class="hint">${P.plan?esc(P.plan.nom||'plan')+' · '+P.plan.w+' × '+P.plan.h+' px':'Aucun plan chargé.'}</p><button class="btn sec" onclick="$('inpPlan').click()">${P.plan?'🔄 Remplacer le plan':'📐 Charger le plan'}</button>${P.plan?'<p class="hint">En cas de remplacement, les réserves gardent leur position relative : garde le même cadrage de plan.</p>':''}</div>
+ <div class="card"><b>Visas / signatures</b><p class="hint">Signature à l’écran en fin de visite (doigt ou stylet). Le PDF reprend chaque visa horodaté avec le nombre de réserves à l’instant de la signature ; si les réserves changent ensuite, c’est signalé sur le PDF.</p>
+  ${visas().map((v,i)=>`<div class="visa"><div class="g2"><div><label class="f">Signataire (rôle)</label><input class="in" value="${esc(v.role)}" placeholder="EPC Demosten, Client / MOA, MOE…" oninput="visaSet(${i},'role',this.value)"></div><div><label class="f">Nom</label><input class="in" value="${esc(v.nom)}" oninput="visaSet(${i},'nom',this.value)"></div></div>
+   <label class="f">Fonction</label><input class="in" value="${esc(v.fonction)}" oninput="visaSet(${i},'fonction',this.value)">
+   <div class="sigrow">${v.sig?`<img class="sigimg" src="${v.sig}" alt="signature"><div class="sigtx">Signé le ${fmtDateTime(v.date)}<br>${v.n} réserve(s) à cet instant${visaChanged(v)?'<br><b style="color:var(--fu)">⚠️ Réserves modifiées depuis</b>':''}</div>`:'<span class="sigtx">Non signé — le PDF laisse un cadre pour signature manuscrite.</span>'}</div>
+   <div class="phb"><button class="btn fu" onclick="openPad(${i})">✍️ ${v.sig?'Re-signer':'Signer'}</button><button class="btn mut" onclick="${v.sig?`visaClear(${i})`:`visaDel(${i})`}">${v.sig?'Effacer la signature':'Retirer'}</button></div></div>`).join('')}
+  <button class="btn sec" onclick="visaAdd()">＋ Ajouter un signataire (MOE, CSPS…)</button>
+ </div>
+ <div class="card"><b>Export</b>
+  <button class="btn" onclick="exportPDF(false)">📄 PDF — toutes les réserves</button>
+  <button class="btn sec" onclick="exportPDF(true)">📄 PDF — réserves non levées</button>
+  <button class="btn sec" onclick="exportXLSX()">📊 Excel — tableau de suivi</button>
+  <button class="btn mut" onclick="exportJSON()">💾 Sauvegarde JSON (complète)</button>
+  <p class="hint">PDF : page de garde + récapitulatif, plan annoté, une fiche par réserve, page visas. Réseau nécessaire pour la génération.${P.exports?' · Dernier PDF : v'+P.exports:''}<br>Excel : onglet SUIVI (une ligne par réserve, colonnes jaunes à saisir pour la levée) + onglet CONTRÔLE (formules de recoupement). Fonctionne sans réseau.${P.xexports?' · Dernier Excel : v'+P.xexports:''}</p>
+ </div>
+ <div class="card"><b>Zone sensible</b><button class="btn dan" onclick="deleteProject()">🗑 Supprimer ce relevé</button></div>
+ <p class="hint" style="text-align:center">Réserves Plan ${APP_V} · EPC Demosten · stockage : ${store}</p></div>`;
+}
+function exportMenu(){ openG('Export',`<button class="btn" onclick="closeG();exportPDF(false)">📄 PDF — toutes les réserves</button><button class="btn sec" onclick="closeG();exportPDF(true)">📄 PDF — réserves non levées</button><button class="btn sec" onclick="closeG();exportXLSX()">📊 Excel — tableau de suivi</button><button class="btn mut" onclick="closeG();exportJSON()">💾 Sauvegarde JSON</button><p class="hint">PDF : plan annoté, fiches, visas (réseau nécessaire). Excel : suivi de levée avec contrôle (hors ligne).</p>`); }
+$('inpPlan').addEventListener('change',async e=>{
+  const f=e.target.files[0]; e.target.value=''; if(!f||!P) return;
+  if(P.plan&&P.points.length&&!confirm('Remplacer le plan ? Les '+P.points.length+' réserves gardent leur position relative (même cadrage recommandé).')) return;
+  overlay(true,'Import du plan…');
+  try{ const isPdf=f.type==='application/pdf'||/\.pdf$/i.test(f.name); const pl=isPdf?await pdfToImg(f):await shrinkFile(f,2600,0.88);
+    P.plan={data:pl.data,w:pl.w,h:pl.h,nom:f.name}; save(); setTab('plan'); loadPlanIntoStage(); toast('Plan chargé : '+pl.w+' × '+pl.h+' px'); }
+  catch(err){ alert('Import impossible : '+err.message); }
+  overlay(false);
+});
+
+function offerFile(blob,name,msg){
+  lastFile={blob,name};
+  openG('Fichier prêt',`<div class="card"><b>${esc(msg||'')}</b><p class="hint" style="word-break:break-all">${esc(name)}<br>${(blob.size/1048576).toFixed(1)} Mo</p></div><button class="btn fu" onclick="shareLast()">📤 Partager / Enregistrer</button><p class="hint">iPhone / iPad : Enregistrer dans Fichiers, Mail, Teams, AirDrop… · PC : téléchargement.</p>`);
+}
+async function shareLast(){
+  if(!lastFile) return;
+  const f=new File([lastFile.blob],lastFile.name,{type:lastFile.blob.type});
+  if(IS_MOBILE&&navigator.canShare&&navigator.canShare({files:[f]})){ try{ await navigator.share({files:[f],title:lastFile.name}); closeG(); return; }catch(e){ if(e&&e.name==='AbortError') return; } }
+  const a=document.createElement('a'); a.href=URL.createObjectURL(lastFile.blob); a.download=lastFile.name; a.rel='noopener'; document.body.appendChild(a); a.click();
+  setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); },3000); closeG();
+}
+async function exportJSON(){
+  await save(true);
+  const blob=new Blob([JSON.stringify({app:APP,version:APP_V,exportDate:new Date().toISOString(),projet:P})],{type:'application/json'});
+  offerFile(blob,`${fileCode()}_Reserves-sauvegarde_${todayFile()}.json`,'Sauvegarde complète : plan, réserves, photos');
+}
+$('inpImport').addEventListener('change',async e=>{
+  const f=e.target.files[0]; e.target.value=''; if(!f) return;
+  try{ const d=JSON.parse(await f.text()); const p=(d&&d.app===APP&&d.projet)?d.projet:null; if(!p||!Array.isArray(p.points)) throw new Error('fichier non reconnu');
+    const all=await DB.all();
+    if(all.some(x=>x.id===p.id)&&!confirm('Ce relevé existe déjà sur l’appareil. Le REMPLACER par la sauvegarde ?\n(Annuler = l’importer comme copie.)')){ p.id='p'+Date.now().toString(36); p.nom=(p.nom||'')+' (copie)'; }
+    p.modif=new Date().toISOString(); await DB.put(p); renderHome(); toast('Relevé importé'); }
+  catch(err){ alert('Import impossible : '+err.message); }
+});
+
+/* ---------- Visas / signatures ---------- */
+function visas(){ if(!Array.isArray(P.visas)) P.visas=[{role:'EPC Demosten',nom:P.redacteur||'',fonction:'Chargé d’affaires'},{role:'Client / MOA',nom:'',fonction:''}]; return P.visas; }
+/* Empreinte de l'état des réserves : permet de signaler toute modification postérieure à une signature */
+function fpPoints(){ const s=P.points.map(p=>[p.n,p.statut,(+p.x).toFixed(3),(+p.y).toFixed(3),p.loc||'',p.desc||'',p.action||'',(p.photos||[]).length].join('|')).sort().join('\n'); let h=0; for(let i=0;i<s.length;i++) h=(Math.imul(h,31)+s.charCodeAt(i))|0; return (h>>>0).toString(16)+'-'+P.points.length; }
+function visaChanged(v){ return !!(v.sig&&v.fp&&v.fp!==fpPoints()); }
+function visaSet(i,k,val){ visas()[i][k]=val; save(); }
+function visaAdd(){ visas().push({role:'',nom:'',fonction:''}); save(); renderInfo(); }
+function visaDel(i){ visas().splice(i,1); save(); renderInfo(); }
+function visaClear(i){ const v=visas()[i]; if(!confirm('Effacer la signature de '+(v.role||'ce signataire')+' ?')) return; delete v.sig; delete v.sw; delete v.sh; delete v.date; delete v.fp; delete v.n; save(); renderInfo(); }
+let padI=-1, padCtx=null, padInk=false, padDown=false, padPrev=null, padMid=null;
+function openPad(i){ padI=i; $('padTitle').textContent='Signature — '+(visas()[i].role||'signataire'); $('pad').classList.add('on'); requestAnimationFrame(padSize); }
+function closePad(){ $('pad').classList.remove('on'); padI=-1; }
+function padSize(){ const c=$('padC'), r=$('padBox').getBoundingClientRect(), dpr=Math.min(3,window.devicePixelRatio||1);
+  c.width=Math.max(1,Math.round(r.width*dpr)); c.height=Math.max(1,Math.round(r.height*dpr)); padCtx=c.getContext('2d'); padCtx.scale(dpr,dpr);
+  padCtx.fillStyle='#fff'; padCtx.fillRect(0,0,r.width,r.height); padCtx.lineWidth=2.4; padCtx.lineCap='round'; padCtx.lineJoin='round'; padCtx.strokeStyle='#14224d'; padInk=false; }
+function padClear(){ padSize(); }
+function padPos(e){ const r=$('padC').getBoundingClientRect(); return {x:e.clientX-r.left,y:e.clientY-r.top}; }
+(function(){ const c=$('padC');
+  c.addEventListener('pointerdown',e=>{ e.preventDefault(); try{ c.setPointerCapture(e.pointerId); }catch(_){} padDown=true; padPrev=padMid=padPos(e); padCtx.beginPath(); padCtx.arc(padPrev.x,padPrev.y,1.2,0,Math.PI*2); padCtx.fillStyle='#14224d'; padCtx.fill(); padInk=true; });
+  c.addEventListener('pointermove',e=>{ if(!padDown) return; e.preventDefault(); const p=padPos(e), mid={x:(padPrev.x+p.x)/2,y:(padPrev.y+p.y)/2};
+    padCtx.beginPath(); padCtx.moveTo(padMid.x,padMid.y); padCtx.quadraticCurveTo(padPrev.x,padPrev.y,mid.x,mid.y); padCtx.stroke(); padPrev=p; padMid=mid; });
+  const end=()=>{ padDown=false; }; c.addEventListener('pointerup',end); c.addEventListener('pointercancel',end); c.addEventListener('pointerleave',end);
+  c.addEventListener('touchmove',e=>e.preventDefault(),{passive:false});
+  window.addEventListener('resize',()=>{ if($('pad').classList.contains('on')&&!padInk) padSize(); });
+})();
+function padOK(){
+  if(!padInk){ toast('Signature vide'); return; }
+  const c=$('padC'), w=c.width, h=c.height, d=padCtx.getImageData(0,0,w,h).data; let x0=w,y0=h,x1=-1,y1=-1;
+  for(let y=0;y<h;y++){ const row=y*w*4; for(let x=0;x<w;x++){ const i=row+x*4; if(d[i]<160||d[i+1]<160){ if(x<x0)x0=x; if(x>x1)x1=x; if(y<y0)y0=y; if(y>y1)y1=y; } } }
+  if(x1<0){ toast('Signature vide'); return; }
+  const m=Math.round(w*0.02)+8; x0=Math.max(0,x0-m); y0=Math.max(0,y0-m); x1=Math.min(w-1,x1+m); y1=Math.min(h-1,y1+m);
+  const bw=x1-x0+1, bh=y1-y0+1, sc=Math.min(1,1000/bw); const o=document.createElement('canvas'); o.width=Math.max(1,Math.round(bw*sc)); o.height=Math.max(1,Math.round(bh*sc));
+  const ox=o.getContext('2d'); ox.fillStyle='#fff'; ox.fillRect(0,0,o.width,o.height); ox.drawImage(c,x0,y0,bw,bh,0,0,o.width,o.height);
+  const v=visas()[padI]; v.sig=o.toDataURL('image/jpeg',0.9); v.sw=o.width; v.sh=o.height; v.date=new Date().toISOString(); v.n=P.points.length; v.fp=fpPoints();
+  save(); closePad(); renderInfo(); toast('Signature enregistrée');
+}
+
+/* ---------- Export Excel : écriture XLSX native (zip "stored"), aucune dépendance, hors ligne ---------- */
+const CRC_T=(()=>{ const t=new Uint32Array(256); for(let i=0;i<256;i++){ let c=i; for(let k=0;k<8;k++) c=(c&1)?(0xEDB88320^(c>>>1)):(c>>>1); t[i]=c>>>0; } return t; })();
+function crc32(u){ let c=0xFFFFFFFF; for(let i=0;i<u.length;i++) c=CRC_T[(c^u[i])&0xFF]^(c>>>8); return (c^0xFFFFFFFF)>>>0; }
+function zipStore(files,mime){
+  const enc=new TextEncoder(), parts=[], cd=[]; let off=0; const d=new Date();
+  const dt=((d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1))&0xFFFF, dd=(((d.getFullYear()-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate())&0xFFFF;
+  const u32=v=>[v&255,(v>>>8)&255,(v>>>16)&255,(v>>>24)&255], u16=v=>[v&255,(v>>>8)&255];
+  for(const f of files){ const name=enc.encode(f.name), data=enc.encode(f.data), crc=crc32(data);
+    const loc=new Uint8Array([...u32(0x04034b50),...u16(20),...u16(0x0800),...u16(0),...u16(dt),...u16(dd),...u32(crc),...u32(data.length),...u32(data.length),...u16(name.length),...u16(0),...name]);
+    parts.push(loc,data);
+    cd.push(new Uint8Array([...u32(0x02014b50),...u16(20),...u16(20),...u16(0x0800),...u16(0),...u16(dt),...u16(dd),...u32(crc),...u32(data.length),...u32(data.length),...u16(name.length),...u16(0),...u16(0),...u16(0),...u16(0),...u32(0),...u32(off),...name]));
+    off+=loc.length+data.length; }
+  const cdLen=cd.reduce((a,b)=>a+b.length,0);
+  parts.push(...cd,new Uint8Array([...u32(0x06054b50),...u16(0),...u16(0),...u16(files.length),...u16(files.length),...u32(cdLen),...u32(off),...u16(0)]));
+  return new Blob(parts,{type:mime});
+}
+function xmlEsc(s){ return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g,''); }
+function colL(i){ let s=''; i++; while(i>0){ const m=(i-1)%26; s=String.fromCharCode(65+m)+s; i=Math.floor((i-1)/26); } return s; }
+function xlsxSerial(v){ if(!v) return null; let y,mo,da; const m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(String(v)); if(m){ y=+m[1]; mo=+m[2]-1; da=+m[3]; } else { const d=v instanceof Date?v:new Date(v); if(isNaN(d)) return null; y=d.getFullYear(); mo=d.getMonth(); da=d.getDate(); } return Math.round((Date.UTC(y,mo,da)-Date.UTC(1899,11,30))/86400000); }
+/* Cellule : chaîne (inlineStr), nombre, {f:formule} ou vide ; s = index de style (voir XL_STYLES) */
+function xc(ref,v,s){ const st=s?` s="${s}"`:''; if(v==null||v==='') return `<c r="${ref}"${st}/>`; if(typeof v==='number') return `<c r="${ref}"${st}><v>${v}</v></c>`; if(typeof v==='object'&&v.f) return `<c r="${ref}"${st}><f>${xmlEsc(v.f)}</f></c>`; return `<c r="${ref}" t="inlineStr"${st}><is><t xml:space="preserve">${xmlEsc(v)}</t></is></c>`; }
+/* Styles : 1 en-tête amarante · 2 texte · 3 saisie (jaune) · 4 calculé (gris) · 5 total (vert) · 6 date · 7 titre · 8 libellé gras · 9 % calculé · 10 saisie date · 11 texte centré · 12 sous-titre */
+const XL_STYLES=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"><numFmts count="1"><numFmt numFmtId="164" formatCode="dd/mm/yyyy"/></numFmts><fonts count="5"><font><sz val="10"/><name val="Montserrat"/></font><font><b/><sz val="10"/><color rgb="FFFFFFFF"/><name val="Montserrat"/></font><font><b/><sz val="10"/><name val="Montserrat"/></font><font><b/><sz val="14"/><color rgb="FF6C1D45"/><name val="Montserrat"/></font><font><sz val="9"/><color rgb="FF595959"/><name val="Montserrat"/></font></fonts><fills count="6"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FF6C1D45"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFFFF2CC"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFE7E6E6"/><bgColor indexed="64"/></patternFill></fill><fill><patternFill patternType="solid"><fgColor rgb="FFC6EFCE"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="2"><border><left/><right/><top/><bottom/><diagonal/></border><border><left style="thin"><color rgb="FFBFBFBF"/></left><right style="thin"><color rgb="FFBFBFBF"/></right><top style="thin"><color rgb="FFBFBFBF"/></top><bottom style="thin"><color rgb="FFBFBFBF"/></bottom><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="13"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="center" wrapText="1"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf><xf numFmtId="0" fontId="0" fillId="3" borderId="1" xfId="0" applyFill="1" applyBorder="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf><xf numFmtId="0" fontId="0" fillId="4" borderId="1" xfId="0" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="top"/></xf><xf numFmtId="0" fontId="2" fillId="5" borderId="1" xfId="0" applyFont="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="top"/></xf><xf numFmtId="164" fontId="0" fillId="0" borderId="1" xfId="0" applyNumberFormat="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="top"/></xf><xf numFmtId="0" fontId="3" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment vertical="center"/></xf><xf numFmtId="0" fontId="2" fillId="0" borderId="1" xfId="0" applyFont="1" applyBorder="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf><xf numFmtId="9" fontId="0" fillId="4" borderId="1" xfId="0" applyNumberFormat="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="top"/></xf><xf numFmtId="164" fontId="0" fillId="3" borderId="1" xfId="0" applyNumberFormat="1" applyFill="1" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="top"/></xf><xf numFmtId="0" fontId="0" fillId="0" borderId="1" xfId="0" applyBorder="1" applyAlignment="1"><alignment horizontal="center" vertical="top" wrapText="1"/></xf><xf numFmtId="0" fontId="4" fillId="0" borderId="0" xfId="0" applyFont="1" applyAlignment="1"><alignment vertical="top" wrapText="1"/></xf></cellXfs><cellStyles count="1"><cellStyle name="Normal" xfId="0" builtinId="0"/></cellStyles></styleSheet>`;
+function buildXLSX(ver){
+  const items=[...P.points].sort((a,b)=>a.n-b.n), first=5, last=first+items.length-1, tr=last+1, today=fmtDate(new Date());
+  const rowX=(r,cells,ht)=>`<row r="${r}"${ht?` ht="${ht}" customHeight="1"`:''}>${cells.join('')}</row>`;
+  const sheetX=(rows,dim,cols,extra,footC)=>`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><sheetPr><tabColor rgb="FF6C1D45"/><pageSetUpPr fitToPage="1"/></sheetPr><dimension ref="${dim}"/><sheetViews><sheetView workbookViewId="0" showGridLines="0"><pane ySplit="4" topLeftCell="A5" activePane="bottomLeft" state="frozen"/><selection pane="bottomLeft" activeCell="A5" sqref="A5"/></sheetView></sheetViews><sheetFormatPr defaultRowHeight="15"/><cols>${cols.map((w,i)=>`<col min="${i+1}" max="${i+1}" width="${w}" customWidth="1"/>`).join('')}</cols><sheetData>${rows.join('')}</sheetData>${extra}<pageMargins left="0.4" right="0.4" top="0.5" bottom="0.6" header="0.3" footer="0.3"/><pageSetup paperSize="9" orientation="landscape" fitToWidth="1" fitToHeight="0"/><headerFooter><oddFooter>&amp;L${xmlEsc(P.code||'')} · ${today} · ${ver}&amp;C${xmlEsc(footC)}&amp;RPage &amp;P / &amp;N</oddFooter></headerFooter></worksheet>`;
+  /* --- Onglet SUIVI --- */
+  const H=['N°','Localisation','Description de la réserve','À faire','Responsable / lot','Échéance','Statut (app)','Créée le','Levée le (app)','Photos','Position plan','Levée constatée le (à saisir)','Observations / suite donnée (à saisir)'];
+  const WD=[6,22,46,40,20,12,13,12,13,8,16,16,42];
+  const r1=[rowX(1,[xc('A1',`SUIVI DES RÉSERVES — ${P.code||''} · ${P.nom||''}`,7)],24),
+    rowX(2,[xc('A2',`Client : ${P.client||'—'} · Lieu : ${P.lieu||'—'} · Relevé du ${P.date?fmtDate(P.date):'—'} · Export ${ver} du ${today} depuis Réserves Plan · Jaune = à saisir (suivi de levée) · Gris = calculé · Vert = total`,12)],30),
+    rowX(4,H.map((h,i)=>xc(colL(i)+'4',h,1)),32)];
+  items.forEach((p,k)=>{ const r=first+k; r1.push(rowX(r,[xc('A'+r,p.n,11),xc('B'+r,p.loc||'',2),xc('C'+r,p.desc||'',2),xc('D'+r,p.action||'',2),xc('E'+r,p.resp||'',2),xc('F'+r,xlsxSerial(p.ech),6),xc('G'+r,stat(p.statut).l,11),xc('H'+r,xlsxSerial(p.cree),6),xc('I'+r,xlsxSerial(p.leve),6),xc('J'+r,(p.photos||[]).length,11),xc('K'+r,`x ${Math.round(p.x*100)} % · y ${Math.round(p.y*100)} %`,11),xc('L'+r,null,10),xc('M'+r,null,3)])); });
+  r1.push(rowX(tr,[xc('A'+tr,'TOTAL',5),xc('B'+tr,{f:`COUNTA(A${first}:A${last})`},5),xc('C'+tr,'réserves',5)]));
+  const s1=sheetX(r1,`A1:M${tr}`,WD,`<autoFilter ref="A4:M${last}"/><mergeCells count="2"><mergeCell ref="A1:M1"/><mergeCell ref="A2:M2"/></mergeCells>`,P.nom||'');
+  /* --- Onglet CONTRÔLE : formules relisant SUIVI vs valeurs figées de l'app --- */
+  const G=`SUIVI!$G$${first}:$G$${last}`, A=`SUIVI!$A$${first}:$A$${last}`, F=`SUIVI!$F$${first}:$F$${last}`, L=`SUIVI!$L$${first}:$L$${last}`;
+  const cnt=k=>items.filter(p=>p.statut===k).length; const r2=[];
+  r2.push(rowX(1,[xc('A1',`CONTRÔLE — ${P.code||''} · ${P.nom||''}`,7)],24));
+  r2.push(rowX(2,[xc('A2','Les formules (gris) relisent l’onglet SUIVI ; la colonne « Valeur figée » vient de l’application au moment de l’export. Écart attendu = 0.',12)],30));
+  r2.push(rowX(4,[xc('A4','Contrôle',1),xc('B4','Formule (SUIVI)',1),xc('C4','Valeur figée (app)',1),xc('D4','Écart',1)],24));
+  r2.push(rowX(5,[xc('A5','Réserves exportées',8),xc('B5',{f:`COUNTA(${A})`},4),xc('C5',items.length,11),xc('D5',{f:'B5-C5'},4)]));
+  ORDER.forEach((k,i)=>{ const r=6+i; r2.push(rowX(r,[xc('A'+r,ST[k].l,8),xc('B'+r,{f:`COUNTIF(${G},"${ST[k].l}")`},4),xc('C'+r,cnt(k),11),xc('D'+r,{f:`B${r}-C${r}`},4)])); });
+  r2.push(rowX(10,[xc('A10','TOTAL',5),xc('B10',{f:'SUM(B6:B9)'},5),xc('C10',{f:'SUM(C6:C9)'},5),xc('D10',{f:'B10-C10'},5)]));
+  r2.push(rowX(12,[xc('A12','Taux de levée',8),xc('B12',{f:'IF(B10=0,0,B9/B10)'},9)]));
+  r2.push(rowX(13,[xc('A13','Réserves en retard (échéance dépassée, non levées)',8),xc('B13',{f:`COUNTIFS(${G},"<>Levée",${F},"<"&TODAY())`},4)]));
+  r2.push(rowX(14,[xc('A14','Levées saisies dans SUIVI (col. L) mais statut app ≠ Levée',8),xc('B14',{f:`COUNTIFS(${L},"<>",${G},"<>Levée")`},4)]));
+  r2.push(rowX(16,[xc('A16','CONTRÔLE GLOBAL',5),xc('B16',{f:'IF(AND(D5=0,D6=0,D7=0,D8=0,D9=0,D10=0),"OK","ÉCART À VÉRIFIER")'},5)]));
+  r2.push(rowX(18,[xc('A18','Export généré le',8),xc('B18',xlsxSerial(new Date()),6)]));
+  r2.push(rowX(19,[xc('A19','Rédacteur',8),xc('B19',P.redacteur||'',2)]));
+  r2.push(rowX(20,[xc('A20','Application',8),xc('B20','Réserves Plan '+APP_V+' · EPC Demosten',2)]));
+  const s2=sheetX(r2,'A1:D20',[52,18,20,12],'','CONTRÔLE');
+  const files=[
+    {name:'[Content_Types].xml',data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/worksheets/sheet2.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/></Types>`},
+    {name:'_rels/.rels',data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/></Relationships>`},
+    {name:'xl/workbook.xml',data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"><bookViews><workbookView xWindow="0" yWindow="0" windowWidth="24000" windowHeight="12000"/></bookViews><sheets><sheet name="SUIVI" sheetId="1" r:id="rId1"/><sheet name="CONTRÔLE" sheetId="2" r:id="rId2"/></sheets><definedNames><definedName name="_xlnm._FilterDatabase" localSheetId="0" hidden="1">SUIVI!$A$4:$M$${last}</definedName></definedNames><calcPr calcId="191029" fullCalcOnLoad="1"/></workbook>`},
+    {name:'xl/_rels/workbook.xml.rels',data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet2.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/></Relationships>`},
+    {name:'xl/styles.xml',data:XL_STYLES},
+    {name:'xl/worksheets/sheet1.xml',data:s1},
+    {name:'xl/worksheets/sheet2.xml',data:s2}];
+  return zipStore(files,'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+}
+async function exportXLSX(){
+  if(!P.points.length){ toast('Aucune réserve à exporter'); return; }
+  P.xexports=(P.xexports||0)+1; const ver='v'+P.xexports;
+  try{ const blob=buildXLSX(ver); await save(true); offerFile(blob,`${fileCode()}_Suivi-reserves_${ver}_${todayFile()}.xlsx`,'Excel généré : '+P.points.length+' réserve(s) · onglets SUIVI + CONTRÔLE'); }
+  catch(err){ P.xexports=Math.max(0,(P.xexports||1)-1); alert('Export Excel impossible : '+err.message); }
+}
+
+/* ---------- Export PDF (jsPDF) ---------- */
+async function exportPDF(onlyOpen){
+  if(!P.plan){ toast('Charge un plan d’abord'); return; }
+  const items=[...P.points].sort((a,b)=>a.n-b.n).filter(p=>!onlyOpen||p.statut!=='lev');
+  if(!items.length){ toast('Aucune réserve à exporter'); return; }
+  const img=$('planImg'); if(!W||!img.complete){ toast('Plan en cours de chargement, réessaie'); return; }
+  overlay(true,'Génération du PDF…');
+  try{
+    await ensureJsPDF();
+    P.exports=(P.exports||0)+1; const ver='v'+P.exports;
+    const blob=await buildPDF(items,onlyOpen,ver);
+    await save(true); overlay(false);
+    offerFile(blob,`${fileCode()}_Releve-reserves${onlyOpen?'-non-levees':''}_${ver}_${todayFile()}.pdf`,'PDF généré : '+items.length+' réserve(s)');
+  }catch(err){ P.exports=Math.max(0,(P.exports||1)-1); overlay(false); alert('Export PDF impossible : '+err.message+'\n(Réseau nécessaire au premier export de la session.)'); }
+}
+function hex(h){ return [parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)]; }
+/* Plan complet avec marqueurs (canvas → JPEG) */
+function planAnnotated(items){
+  const img=$('planImg'); const cw=Math.min(W,2400), k=cw/W, ch=Math.round(H*k);
+  const c=document.createElement('canvas'); c.width=cw; c.height=ch; const x=c.getContext('2d');
+  x.fillStyle='#fff'; x.fillRect(0,0,cw,ch); x.drawImage(img,0,0,cw,ch);
+  const r=Math.max(14,Math.round(cw/75)); x.font='bold '+Math.round(r*1.1)+'px Montserrat, Helvetica, Arial, sans-serif'; x.textAlign='center'; x.textBaseline='middle';
+  for(const p of items){ const px=p.x*cw, py=p.y*ch; x.beginPath(); x.arc(px,py,r,0,Math.PI*2); x.fillStyle=stat(p.statut).c; x.fill(); x.lineWidth=Math.max(2,r/6); x.strokeStyle='#fff'; x.stroke(); x.fillStyle='#fff'; x.fillText(String(p.n),px,py+r*0.06); }
+  return {data:c.toDataURL('image/jpeg',0.85),w:cw,h:ch};
+}
+/* Extrait du plan autour d'une réserve (carré) */
+function planCrop(p){
+  const img=$('planImg'); const S=360; const win=Math.max(300,Math.round(W*0.15));
+  const sx=clamp(Math.round(p.x*W-win/2),0,Math.max(0,W-win)), sy=clamp(Math.round(p.y*H-win/2),0,Math.max(0,H-win));
+  const sw=Math.min(win,W-sx), sh=Math.min(win,H-sy);
+  const c=document.createElement('canvas'); c.width=S; c.height=S; const x=c.getContext('2d');
+  x.fillStyle='#fff'; x.fillRect(0,0,S,S); x.drawImage(img,sx,sy,sw,sh,0,0,sw*S/win,sh*S/win);
+  const mx=(p.x*W-sx)*S/win, my=(p.y*H-sy)*S/win, r=22;
+  x.beginPath(); x.arc(mx,my,r,0,Math.PI*2); x.fillStyle=stat(p.statut).c; x.fill(); x.lineWidth=3; x.strokeStyle='#fff'; x.stroke();
+  x.fillStyle='#fff'; x.font='bold 22px Montserrat, Helvetica, Arial, sans-serif'; x.textAlign='center'; x.textBaseline='middle'; x.fillText(String(p.n),mx,my+1);
+  return c.toDataURL('image/jpeg',0.85);
+}
+async function pdfImg(dataURL){ try{ const img=await loadImg(dataURL); return drawScaled(img,900,0.62).data; }catch(_){ return dataURL; } }
+async function buildPDF(items,onlyOpen,ver){
+  const pdfPhotos=new Map();   // réserve n° -> photos réencodées
+  for(const p of items){ const arr=[]; for(const q of (p.photos||[]).slice(0,3)) arr.push({d:await pdfImg(q.d),w:q.w,h:q.h}); pdfPhotos.set(p.n,arr); }
+  const {jsPDF}=window.jspdf; const doc=new jsPDF({unit:'mm',format:'a4',orientation:'portrait',compress:true});
+  const M=12; const AM=[108,29,69], FU=[233,33,132], GR=[110,110,110], LG=[205,200,203], TX=[30,30,30];
+  const code=P.code||'—', dateStr=fmtDate(new Date()); const T=s=>String(s==null?'':s);
+  const pw=()=>doc.internal.pageSize.getWidth(), ph=()=>doc.internal.pageSize.getHeight();
+  function footer(){ const y=ph()-8; doc.setFont('helvetica','normal'); doc.setFontSize(8); doc.setTextColor(...GR);
+    doc.text(code+' · '+dateStr+' · '+ver,M,y); doc.text('Relevé de réserves · EPC Demosten',pw()/2,y,{align:'center'}); doc.text('Page '+doc.internal.getNumberOfPages()+' / {tot}',pw()-M,y,{align:'right'});
+    doc.setDrawColor(...LG); doc.line(M,y-4,pw()-M,y-4); }
+  function newPage(orient){ doc.addPage('a4',orient||'portrait'); footer(); }
+  function legend(x,y){ doc.setFontSize(8); doc.setFont('helvetica','normal'); let lx=x; for(const k of ORDER){ doc.setFillColor(...hex(ST[k].c)); doc.circle(lx+1.6,y-1.1,1.6,'F'); doc.setTextColor(...TX); doc.text(ST[k].l,lx+4.5,y); lx+=doc.getTextWidth(ST[k].l)+11; } }
+  const cnt={}; ORDER.forEach(k=>cnt[k]=P.points.filter(p=>p.statut===k).length); const fp=fpPoints();
+
+  /* --- Page 1 : en-tête, infos, récapitulatif --- */
+  footer();
+  let CW=pw()-2*M, y=0;
+  doc.setFillColor(...AM); doc.rect(0,0,pw(),30,'F'); doc.setFillColor(...FU); doc.rect(0,30,pw(),1.5,'F');
+  doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(16); doc.text('RELEVÉ DE RÉSERVES SUR PLAN',M,13);
+  doc.setFontSize(11); doc.setFont('helvetica','normal'); doc.text(doc.splitTextToSize(T(P.nom||''),CW-45)[0]||'',M,21);
+  doc.setFontSize(9); doc.setFont('helvetica','bold'); doc.text('EPC Demosten',pw()-M,11,{align:'right'}); doc.setFont('helvetica','normal'); doc.text('Chantier '+code,pw()-M,17,{align:'right'}); doc.text(dateStr+' · '+ver,pw()-M,23,{align:'right'});
+  y=41; doc.setTextColor(...TX); doc.setFontSize(9);
+  const meta=[['Client / MOA',P.client],['Lieu',P.lieu],['Objet',P.objet],['Rédacteur',P.redacteur],['Date du relevé',P.date?fmtDate(P.date):'—'],['Plan',P.plan.nom]];
+  const colW=CW/2; meta.forEach((m,i)=>{ const x=M+(i%2)*colW, yy=y+Math.floor(i/2)*6; doc.setFont('helvetica','bold'); doc.text(m[0]+' :',x,yy); doc.setFont('helvetica','normal'); doc.text(doc.splitTextToSize(T(m[1]||'—'),colW-32)[0]||'—',x+30,yy); });
+  y+=20;
+  doc.setFont('helvetica','bold'); doc.setFontSize(9.5); doc.setTextColor(...AM);
+  doc.text(P.points.length+' réserve(s) au total : '+cnt.af+' à faire · '+cnt.ec+' en cours · '+cnt.ac+' à contrôler · '+cnt.lev+' levée(s)',M,y);
+  if(onlyOpen){ doc.setTextColor(...FU); doc.text('Ce document ne reprend que les réserves non levées ('+items.length+').',M,y+5); y+=5; }
+  const signed=(P.visas||[]).filter(v=>v.sig); if(signed.length){ doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(...GR); doc.text(doc.splitTextToSize('Visas signés : '+signed.map(v=>T(v.role)+' ('+fmtDate(v.date)+(v.fp&&v.fp!==fp?', réserves modifiées depuis':'')+')').join(' · ')+' — voir dernière page.',CW)[0],M,y+5); y+=5; }
+  y+=9; legend(M,y); y+=8;
+  doc.setFont('helvetica','bold'); doc.setFontSize(11); doc.setTextColor(...AM); doc.text('RÉCAPITULATIF',M,y); y+=4;
+  const cols=[['N°',9],['Localisation',42],['Description',70],['Responsable',30],['Échéance',18],['Statut',17]];
+  const tblHead=()=>{ doc.setFillColor(...AM); doc.rect(M,y,CW,6,'F'); doc.setTextColor(255,255,255); doc.setFontSize(7.5); doc.setFont('helvetica','bold'); let x=M+1.5; for(const [l,w] of cols){ doc.text(l,x,y+4.2); x+=w; } y+=6; doc.setFont('helvetica','normal'); doc.setTextColor(...TX); };
+  tblHead();
+  for(const p of items){
+    const cells=[String(p.n),T(p.loc)||'—',T(p.desc)||'—',T(p.resp)||'—',p.ech?fmtDate(p.ech):'—',stat(p.statut).l];
+    doc.setFontSize(7.5); const lines=cells.map((c,i)=>doc.splitTextToSize(c,cols[i][1]-3).slice(0,2));
+    const rh=Math.max(...lines.map(l=>l.length))*3.4+2.4;
+    if(y+rh>ph()-14){ newPage('portrait'); y=M+2; tblHead(); }
+    let x=M+1.5;
+    lines.forEach((l,i)=>{ if(i===5){ doc.setTextColor(...hex(stat(p.statut).c)); doc.setFont('helvetica','bold'); } doc.text(l,x,y+3.3); if(i===5){ doc.setTextColor(...TX); doc.setFont('helvetica','normal'); } x+=cols[i][1]; });
+    y+=rh; doc.setDrawColor(...LG); doc.line(M,y,M+CW,y);
+  }
+
+  /* --- Page plan annoté (paysage si le plan est large) --- */
+  const wide=W>=H; newPage(wide?'landscape':'portrait'); CW=pw()-2*M;
+  doc.setFont('helvetica','bold'); doc.setFontSize(11); doc.setTextColor(...AM); doc.text(doc.splitTextToSize('PLAN ANNOTÉ — '+T(P.plan.nom||''),CW-80)[0],M,M+4);
+  legend(pw()-M-92,M+4);
+  const pimg=planAnnotated(items); const top=M+9, availH=ph()-14-top-2;
+  let iw=CW, ih=iw*pimg.h/pimg.w; if(ih>availH){ ih=availH; iw=ih*pimg.w/pimg.h; }
+  const ix=M+(CW-iw)/2; doc.setDrawColor(...LG); doc.rect(ix-0.5,top-0.5,iw+1,ih+1); doc.addImage(pimg.data,'JPEG',ix,top,iw,ih);
+
+  /* --- Fiches réserves --- */
+  newPage('portrait'); CW=pw()-2*M; y=M+2;
+  doc.setFont('helvetica','bold'); doc.setFontSize(11); doc.setTextColor(...AM); doc.text('FICHES RÉSERVES',M,y+2); y+=8;
+  const LH=4, FS=9, leftW=112, rightW=CW-leftW-11;
+  const wrapT=(s,w)=>{ doc.setFontSize(FS); return doc.splitTextToSize(T(s)||'—',w); };
+  function layout(p){
+    const L=[['LOCALISATION',wrapT(p.loc,leftW)],['DESCRIPTION DE LA RÉSERVE',wrapT(p.desc,leftW)],['À FAIRE',wrapT(p.action,leftW)]];
+    const R=[['RESPONSABLE / LOT',wrapT(p.resp,rightW)],['ÉCHÉANCE',[p.ech?fmtDate(p.ech):'—']],['STATUT',[stat(p.statut).l]],['CRÉÉE LE',[fmtDate(p.cree)]],['LEVÉE LE',[p.leve?fmtDate(p.leve):'—']]];
+    const hh=a=>a.reduce((s,b)=>s+3.5+b[1].length*LH+1.5,0); const body=Math.max(hh(L),hh(R));
+    return {L,R,body,h:9+2+body+2+47+2};
+  }
+  function drawCard(p,lay,y){
+    const x=M, col=hex(stat(p.statut).c);
+    doc.setDrawColor(...LG); doc.roundedRect(x,y,CW,lay.h,2,2,'S');
+    doc.setFillColor(...col); doc.circle(x+7,y+4.8,3.6,'F'); doc.setTextColor(255,255,255); doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.text(String(p.n),x+7,y+6.1,{align:'center'});
+    doc.setTextColor(...AM); doc.setFontSize(11); doc.text('Réserve n°'+p.n,x+13,y+6.3);
+    doc.setTextColor(...col); doc.setFontSize(9); doc.text(stat(p.statut).l.toUpperCase(),x+CW-3,y+6.3,{align:'right'});
+    doc.setDrawColor(...LG); doc.line(x,y+9,x+CW,y+9);
+    let yy=y+11; const lx=x+3, rx=x+3+leftW+5;
+    const drawCol=(list,cx,cy)=>{ for(const [lab,lines] of list){ doc.setFont('helvetica','bold'); doc.setFontSize(6.8); doc.setTextColor(...GR); doc.text(lab,cx,cy+2.5); cy+=3.5; doc.setFont('helvetica','normal'); doc.setFontSize(FS); doc.setTextColor(...TX); doc.text(lines,cx,cy+2.8); cy+=lines.length*LH+1.5; } };
+    drawCol(lay.L,lx,yy); drawCol(lay.R,rx,yy);
+    doc.setDrawColor(...LG); doc.line(rx-2.5,yy,rx-2.5,yy+lay.body);
+    yy+=lay.body+2;
+    doc.addImage(planCrop(p),'JPEG',lx,yy,43,43); doc.setDrawColor(...LG); doc.rect(lx,yy,43,43);
+    doc.setFont('helvetica','normal'); doc.setFontSize(6.5); doc.setTextColor(...GR); doc.text('Localisation sur plan',lx+21.5,yy+46.2,{align:'center'});
+    let px=lx+46; const phs=pdfPhotos.get(p.n)||[]; const nTot=(p.photos||[]).length; const bw=43, bh=32;
+    for(let i=0;i<Math.min(3,phs.length);i++){ const q=phs[i]; let w=bw, h=q.w&&q.h?bw*q.h/q.w:bh; if(h>bh){ h=bh; w=bh*q.w/q.h; }
+      doc.setFillColor(242,242,242); doc.rect(px,yy,bw,bh,'F'); doc.addImage(q.d,'JPEG',px+(bw-w)/2,yy+(bh-h)/2,w,h); doc.setDrawColor(...LG); doc.rect(px,yy,bw,bh);
+      doc.text('Photo '+(i+1)+(i===2&&nTot>3?' (+'+(nTot-3)+' autres)':''),px+bw/2,yy+bh+3.2,{align:'center'}); px+=46; }
+    if(!phs.length){ doc.setTextColor(...GR); doc.setFontSize(8); doc.text('Aucune photo',lx+46,yy+6); }
+  }
+  for(const p of items){ const lay=layout(p); if(y+lay.h>ph()-14){ newPage('portrait'); y=M+2; } drawCard(p,lay,y); y+=lay.h+5; }
+
+  /* --- Page visas : un cadre par signataire (signature à l'écran ou manuscrite) --- */
+  const VS=(P.visas||[]).filter(v=>v.role||v.nom||v.sig);
+  if(VS.length){
+    newPage('portrait'); CW=pw()-2*M; y=M+2;
+    doc.setFont('helvetica','bold'); doc.setFontSize(11); doc.setTextColor(...AM); doc.text('VISAS',M,y+2); y+=9;
+    const nOpen=P.points.filter(p=>p.statut!=='lev').length;
+    doc.setFont('helvetica','normal'); doc.setFontSize(9); doc.setTextColor(...TX);
+    const intro=doc.splitTextToSize('Relevé de réserves établi le '+(P.date?fmtDate(P.date):dateStr)+(P.lieu?' — '+T(P.lieu):'')+(P.client?' — client : '+T(P.client):'')+'. Les signataires reconnaissent avoir pris connaissance des '+P.points.length+' réserve(s) du présent relevé, dont '+nOpen+' non levée(s) à la date d’édition ('+dateStr+'). Chaque signature à l’écran est horodatée avec le nombre de réserves enregistrées à cet instant ; toute modification postérieure des réserves est signalée dans le cadre du visa.',CW);
+    doc.text(intro,M,y); y+=intro.length*4.2+5;
+    const bwv=(CW-6)/2, bhv=64;
+    VS.forEach((v,i)=>{ if(i%2===0&&i>0) y+=bhv+6; if(y+bhv>ph()-14){ newPage('portrait'); y=M+2; } const bx=M+(i%2)*(bwv+6);
+      doc.setDrawColor(...LG); doc.roundedRect(bx,y,bwv,bhv,2,2,'S');
+      doc.setFont('helvetica','bold'); doc.setFontSize(10); doc.setTextColor(...AM); doc.text(doc.splitTextToSize(T(v.role)||'Signataire',bwv-6)[0],bx+3,y+6.5);
+      doc.setFont('helvetica','normal'); doc.setFontSize(8.5); doc.setTextColor(...TX);
+      doc.text(doc.splitTextToSize('Nom : '+(T(v.nom)||'..........................................'),bwv-6)[0],bx+3,y+12);
+      doc.text(doc.splitTextToSize('Fonction : '+(T(v.fonction)||'..........................................'),bwv-6)[0],bx+3,y+17);
+      doc.setDrawColor(...LG); doc.line(bx+3,y+20,bx+bwv-3,y+20);
+      if(v.sig){ let sw=bwv-12, sh=(v.sw&&v.sh)?sw*v.sh/v.sw:24; if(sh>26){ sh=26; sw=sh*v.sw/v.sh; } doc.addImage(v.sig,'JPEG',bx+(bwv-sw)/2,y+22,sw,sh);
+        doc.setFontSize(7.5); doc.setTextColor(...GR); doc.text(doc.splitTextToSize('Signé à l’écran le '+fmtDateTime(v.date)+' · '+v.n+' réserve(s) enregistrée(s) à cet instant',bwv-6).slice(0,2),bx+3,y+bhv-13,{lineHeightFactor:1.1});
+        if(v.fp&&v.fp!==fp){ doc.setTextColor(...FU); doc.setFont('helvetica','bold'); doc.text(doc.splitTextToSize('Réserves modifiées après signature : ce visa porte sur l’état antérieur du relevé.',bwv-6).slice(0,2),bx+3,y+bhv-5.5,{lineHeightFactor:1.1}); doc.setFont('helvetica','normal'); }
+      } else { doc.setFontSize(7.5); doc.setTextColor(...GR); doc.text('Signature :',bx+3,y+26); doc.text('Date :',bx+3,y+bhv-4); doc.text('Lieu :',bx+bwv/2,y+bhv-4); }
+    });
+  }
+  if(typeof doc.putTotalPages==='function') doc.putTotalPages('{tot}');
+  return doc.output('blob');
+}
+
+/* ---------- Démarrage ---------- */
+(async function init(){
+  const mode=await DB.init();
+  if(navigator.storage&&navigator.storage.persist){ try{ navigator.storage.persist(); }catch(_){} }
+  $('storeInfo').textContent=mode==='idb'?'':(mode==='ws'?'Mode artefact : stockage limité — l’usage réel se fait depuis l’icône écran d’accueil.':'⚠️ Stockage indisponible ici : les données seront perdues à la fermeture. Exporte en JSON.');
+  renderHome();
+})();
+</script>
+</body>
+</html>
